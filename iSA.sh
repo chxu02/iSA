@@ -1,4 +1,4 @@
-[ $# != 3 ] && { echo "Usage: iSA_lite.sh <name> <t1> <t2>"
+[ $# != 3 ] && { echo "Usage: iSA.sh <name> <t1> <t2>"
                  echo "<name> name of the bam file from Bismark (only the string before '.bam')"
                  echo "<t1> number of bases uniformly trimmed off from 5' end of mate 1 reads (0 if no trimming)"
                  echo "<t2> number of bases uniformly trimmed off from 5' end of mate 2 reads (0 if no trimming)"
