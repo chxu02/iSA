@@ -56,7 +56,7 @@ Y|y) echo Continue on... Extracting paired alignments...
      gzip -cd CpG_OT_$1.Wat.iSA.txt.gz | sort -k1,1 | join -j 1 - $1.Wat.ID | sed 's/ /\t/g' | awk '{print $6"_"$3"_"$4,$3,$4-1,$4+1,$5}' OFS='\t' | sort -k1,1 > $1.Wat.me;
      gzip -cd CpG_OB_$1.Cri.iSA.txt.gz | sort -k1,1 | join -j 1 - $1.Cri.ID | sed 's/ /\t/g' | awk '{print $6"_"$3"_"$4-1,$3,$4-2,$4,$5}' OFS='\t' | sort -k1,1 > $1.Cri.me;
      join -j 1 $1.Wat.me $1.Cri.me | sed 's/ /\t/g' | awk '{if($5=="z" && $9=="z"){print $2,$3,$4,1,0,0,0} else if($5=="z" && $9=="Z"){print $2,$3,$4,0,1,0,0} else if($5=="Z" && $9=="z"){print $2,$3,$4,0,0,1,0} else{print $2,$3,$4,0,0,0,1}}' OFS='\t' | sort -k1,1 -k2,2n | groupBy -g 1-3 -c 4,5,6,7 -o sum > $1.intraCpG.bed;
-     awk '{To+=$4+$5+$6+$7; Un+=$4; HC+=$5; HW+=$6; Me+=$7} END{print "\nYou found "To" intraCpGs, of which:\n"Un" are unmethylated,\n"HW" are hemi-Watson,\n"HC" are hemi-Crick,\n"Me" are methylated.\n"}' $1.intraCpG.bed | tee -a $1.iSA.report.txt;;
+     awk '{To+=$4+$5+$6+$7; Un+=$4; HC+=$5; HW+=$6; Me+=$7} END{print "You found "To" intraCpGs, of which:\n"Un" are unmethylated,\n"HW" are hemi-Watson,\n"HC" are hemi-Crick,\n"Me" are methylated.\n"}' $1.intraCpG.bed | tee -a $1.iSA.report.txt;;
 N|n) echo Cleaning up...
      rm $1.Wat.bam $1.Cri.bam $1.Wat.bed $1.Cri.bed
      exit;;
