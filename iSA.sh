@@ -53,8 +53,8 @@ Y|y) echo Continue on... Extracting paired alignments...
      cut -f 4 $1.iSA.bed | awk '{print $1*2-1"\n"$1*2}' > $1.Wat.LN;
      cut -f 6 $1.iSA.bed | awk '{print $1*2-1"\n"$1*2}' > $1.Cri.LN;
      samtools view -H $1.Wat.bam > header;
-     samtools view $1.Wat.bam | awk 'FNR==NR {h[$1];next} (FNR in h)' $1.Wat.LN - | cat header - | samtools view -bh -@ 48 - > $1.Wat.iSA.bam;
-     samtools view $1.Cri.bam | awk 'FNR==NR {h[$1];next} (FNR in h)' $1.Cri.LN - | cat header - | samtools view -bh -@ 48 - > $1.Cri.iSA.bam;
+     samtools view $1.Wat.bam | awk 'FNR==NR {h[$1];next} (FNR in h)' $1.Wat.LN - | cat header - | samtools view -bh -@ 8 - > $1.Wat.iSA.bam;
+     samtools view $1.Cri.bam | awk 'FNR==NR {h[$1];next} (FNR in h)' $1.Cri.LN - | cat header - | samtools view -bh -@ 8 - > $1.Cri.iSA.bam;
      echo Extracting DNA methylation calls...
      bismark_methylation_extractor -p --multicore 8 --no_header --gzip $1.Wat.iSA.bam
      bismark_methylation_extractor -p --multicore 8 --no_header --gzip $1.Cri.iSA.bam
