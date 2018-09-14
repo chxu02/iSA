@@ -4,4 +4,4 @@ Whole genome bisulfite sequencing (WGBS) has been widely used to quantify cytosi
 
 Please cite:
 1. Xu, C. & Corces, V. G. Nascent DNA methylome mapping reveals inheritance of hemimethylation at CTCF/cohesin sites. Science 359, 1166-1170, doi:10.1126/science.aan5480 (2018).
-2. Xu, C. & Corces, V. G. Deconvolution of DNA methylation sequencing data to single CpG level using in silico Strand Annealing (iSA). Nat Protoc (accepted).
+2. Xu, C. & Corces, V. G. Deconvolution of DNA methylation sequencing data to single CpG level using in silico Strand Annealing. Nat Protoc (accepted).
